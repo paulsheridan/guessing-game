@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Homework-1-Nov-30</title>
+  </head>
+  <body>
+    <h1>Welcome!</h1>
+    <p>
+      The JavaScript on this page starts by prompting the user for their name
+      and saving their input as a variable.  It then creates an alert with the user
+      input concatenated into a greeting string. The user is then prompted with 3 questions.
+      A correct answer returns a positive alert and adds one to the "points" variable.  An incorrect
+      answer doesn't add any points to the "points" variable and returns a negative alert.
+      After 3 prompts, the "points" variable is referenced in an "if" statement and one of three final
+      alerts is displayed depending on score.
+    </p>
+    <h3>About me</h3>
+    <p>
+      Hi, my name is Paul. I'm a martial artist with a worthless
+      Political Science degree. I like beer, Cold War spy novels, Christopher Hitchens
+      and the occasional video game!
+    </p>
+      <h2>Let's play a guessing game!</h2>
+    <p>
+      You'll be prompted with 3 questions about me. Good luck!
+    </p>
+    <script>
+    var playerName = prompt("Hey there, what's your name?");
+    var points = 0;
+
+    alert("Hey " + playerName + ". Thanks for dropping by.")
+    var question1 = prompt("Question 1: Do I like beer?");
+    if(question1 === "yes" || question1 === "Yes" || question1 === "YES" || question1 === "y" || question1 === "Y"){
+      points ++;
+      alert("You know it!");
+    }
+    else{
+      alert("Boo! Incorrect.");
+    }
+    var question2 = prompt("Question 2: Am I a fan of Cold War spy novels?");
+    if(question2 === "yes" || question2 === "Yes" || question2 === "YES" || question2 === "y" || question2 === "Y"){
+      points ++;
+      alert("That's right!");
+    }
+    else{
+      alert("Sorry, no. That's not correct")
+    }
+    var question3 = prompt("Question 3: Am I over 6 feet tall?");
+    if(question3 === "no" || question3 === "No" || question3 === "NO" || question3 === "n" || question3 === "N"){
+      points ++;
+      alert("That's right!");
+    }
+    else{
+      alert("Nope, wrong. Sorry.");
+    }
+    if(points > 1){
+      alert("Hey, not bad!  You got " + points + " questions right!");
+    }
+    else if(points = 1){
+      alert("That could have gone better.  You got one question right.");
+    }
+    else{
+      alert("You didn't get any questions right!")
+    }
+    </script>
+  </body>
+</html>
