@@ -42,11 +42,25 @@ while(userGuess !== questionNum){
     userGuess = parseInt(prompt("That's not a number! I can only evaluate numbers; I am literally freaking out."))
   }else{
     if(userGuess > questionNum){
+      if((userGuess - questionNum) < 10){
+        userGuess = parseInt(prompt("That number is too high, but you're close."));
+      }
+      else if ((userGuess - questionNum) > 70){
+        userGuess = parseInt(prompt("That number is way too high."));
+      }else{
+        userGuess = parseInt(prompt("That number is too high, try again."));
+      }
       guesses ++;
-      userGuess = parseInt(prompt("Too high, guess a lower number"));
     }else{
+      if((questionNum - userGuess) < 10){
+        userGuess = parseInt(prompt("That number is too low, but you're close."));
+      }
+      else if ((questionNum - userGuess) > 70){
+        userGuess = parseInt(prompt("That number is way too low."));
+      }else{
+        userGuess = parseInt(prompt("That number is too low, try again."));
+      }
       guesses ++;
-      userGuess = parseInt(prompt("Too low, try a higher number"));
     }
   }
 }
@@ -59,8 +73,7 @@ var correct = false;
 for(i = 0; i < correctAnswers.length; i++){
   if(correctAnswers[i] === answerInput){
     correct = true;
-  }else{
-
+    break;
   }
 }
 if(correct){
