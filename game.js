@@ -52,12 +52,15 @@ while(userGuess !== questionNum){
 }
 alert("Nailed it! Well done. That only took " + guesses + " guesses.")
 
-//var correctAnswers = ["colorado", "louisiana", "washington"];
-//var answerInput = prompt("Please input a state in which Paul has lived at some point in his life.");
+var correctAnswers = ["colorado", "louisiana", "washington"];
+var answerInput = prompt("Please input a state in which Paul has lived at some point in his life.");
 
-//for(i = 0; i < correctAnswers.length; i++){
-
-//}
+for(i = 0; i < correctAnswers.length; i++){
+  if(correctAnswers[i] === answerInput){
+    points ++;
+    alert("You did it, congratulations.  That's correct!");
+  }
+}
 
 if(points > 1){
   alert("Hey, not bad!  You got " + points + " questions right!");
