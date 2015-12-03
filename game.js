@@ -30,22 +30,38 @@ if(question4 === "no" || question4 === "No" || question4 === "NO" || question4 =
 }else{
   alert("Nope, Denver CO born!");
 }
-var questionNum = Math.floor(Math.random() * (max - min)) + min;
-}
-var question5 = prompt("Last question: Guess the number I'm thinking of!");
+var questionNum = Math.floor(Math.random() * (100 - 0)) + 0;
+var userGuess = parseInt(prompt("Last question: Guess the number I'm thinking of between 1 and 100!"));
+var guesses = 1;
 
-if(questionNum === 28){
-  points ++;
-  alert("Nice work, you nailed it!");
-}else if(questionNum > 28 && question){
-  alert("Too high, I'm offended! Nah, just kidding, I'm not offended. You are wrong though.")
-}else{
-  alert("That's a little young, but good try.")
+//I chose not to give a point for the number guessing game.  Since there's no way to get it wrong, it would make the "zero points" alert pointless
+
+while(userGuess !== questionNum){
+  if (isNaN(userGuess)){
+    guesses ++;
+    userGuess = parseInt(prompt("That's not a number! I can only evaluate numbers; I am literally freaking out."))
+  }else{
+    if(userGuess > questionNum){
+      guesses ++;
+      userGuess = parseInt(prompt("Too high, guess a lower number"));
+    }else{
+      guesses ++;
+      userGuess = parseInt(prompt("Too low, try a higher number"));
+    }
+  }
 }
+alert("Nailed it! Well done. That only took " + guesses + " guesses.")
+
+//var correctAnswers = ["colorado", "louisiana", "washington"];
+//var answerInput = prompt("Please input a state in which Paul has lived at some point in his life.");
+
+//for(i = 0; i < correctAnswers.length; i++){
+
+//}
 
 if(points > 1){
   alert("Hey, not bad!  You got " + points + " questions right!");
-}else if(points = 1){
+}else if(points === 1){
   alert("That could have gone better.  You got one question right.");
 }else{
   alert("You didn't get any points!")
