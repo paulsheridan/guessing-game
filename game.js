@@ -30,12 +30,14 @@ if(question4 === "no" || question4 === "No" || question4 === "NO" || question4 =
 }else{
   alert("Nope, Denver CO born!");
 }
-var question5 = prompt("Last question: How old is Paul?");
-var questionNum = parseInt(question5);
+var questionNum = Math.floor(Math.random() * (max - min)) + min;
+}
+var question5 = prompt("Last question: Guess the number I'm thinking of!");
+
 if(questionNum === 28){
   points ++;
   alert("Nice work, you nailed it!");
-}else if(questionNum > 28){
+}else if(questionNum > 28 && question){
   alert("Too high, I'm offended! Nah, just kidding, I'm not offended. You are wrong though.")
 }else{
   alert("That's a little young, but good try.")
