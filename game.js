@@ -16,15 +16,19 @@ function ques(quesPrompt, ansBool, corResponse, incorResponse, webElem){
     if(answer.toLowerCase() === "yes" || answer.toLowerCase() === "y"){
       points ++;
       response = corResponse;
+      webElem.className = 'right';
     }else{
       response = incorResponse;
+      webElem.className = 'wrong';
     }
   }else{
     if(answer.toLowerCase() === "no" || answer.toLowerCase() === "n"){
       points ++;
       response = corResponse;
+      webElem.className = 'right';
     }else{
       response = incorResponse;
+      webElem.className = 'wrong';
     }
   }
   webElem.textContent = response;
