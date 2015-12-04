@@ -30,20 +30,62 @@ if(question4 === "no" || question4 === "No" || question4 === "NO" || question4 =
 }else{
   alert("Nope, Denver CO born!");
 }
-var question5 = prompt("Last question: How old is Paul?");
-var questionNum = parseInt(question5);
-if(questionNum === 28){
+var questionNum = Math.floor(Math.random() * (100 - 0)) + 0;
+var userGuess = parseInt(prompt("Last question: Guess the number I'm thinking of between 1 and 100!"));
+var guesses = 1;
+
+//I chose not to give a point for the number guessing game.  Since there's no way to get it wrong, it would make the "zero points" alert pointless
+
+while(userGuess !== questionNum){
+  if (isNaN(userGuess)){
+    guesses ++;
+    userGuess = parseInt(prompt("That's not a number! I can only evaluate numbers; I am literally freaking out."))
+  }else{
+    if(userGuess > questionNum){
+      if((userGuess - questionNum) < 10){
+        userGuess = parseInt(prompt("That number is too high, but you're close."));
+      }
+      else if ((userGuess - questionNum) > 70){
+        userGuess = parseInt(prompt("That number is way too high."));
+      }else{
+        userGuess = parseInt(prompt("That number is too high, try again."));
+      }
+      guesses ++;
+    }else{
+      if((questionNum - userGuess) < 10){
+        userGuess = parseInt(prompt("That number is too low, but you're close."));
+      }
+      else if ((questionNum - userGuess) > 70){
+        userGuess = parseInt(prompt("That number is way too low."));
+      }else{
+        userGuess = parseInt(prompt("That number is too low, try again."));
+      }
+      guesses ++;
+    }
+  }
+}
+alert("Nailed it! Well done. That only took " + guesses + " guesses.")
+
+var correctAnswers = ["colorado", "louisiana", "washington"];
+var answerInput = prompt("Please input a state in which Paul has lived at some point in his life.").toLowerCase();
+var correct = false;
+
+for(i = 0; i < correctAnswers.length; i++){
+  if(correctAnswers[i] === answerInput){
+    correct = true;
+    break;
+  }
+}
+if(correct){
   points ++;
-  alert("Nice work, you nailed it!");
-}else if(questionNum > 28){
-  alert("Too high, I'm offended! Nah, just kidding, I'm not offended. You are wrong though.")
+  alert("You did it, congratulations.  That's correct!");
 }else{
-  alert("That's a little young, but good try.")
+  alert("Nope, he's never lived there.")
 }
 
 if(points > 1){
   alert("Hey, not bad!  You got " + points + " questions right!");
-}else if(points = 1){
+}else if(points === 1){
   alert("That could have gone better.  You got one question right.");
 }else{
   alert("You didn't get any points!")
